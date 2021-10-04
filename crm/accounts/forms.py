@@ -1,9 +1,14 @@
 from django.forms import ModelForm, fields
-from .models import Order
+from .models import Customer, Order
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 
+class CustomerForm(ModelForm):
+    class Meta:
+        model = Customer
+        fields = '__all__'
+        exclude = ['user']
 class OrderForm(ModelForm):
     class Meta:
         model = Order
